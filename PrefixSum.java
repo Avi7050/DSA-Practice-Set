@@ -15,11 +15,19 @@ public class PrefixSum {
         }
         return pref;
     }
+    /**Without Using extra array space */
+    static void prefixSum(int[] arr) {
+        int n = arr.length;
+        arr[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            arr[i] = arr[i - 1] + arr[i];
+        }
+    }
 
     public static void main(String[] args) {
         int[] arr = { 2, 1, 3, 4, 5 };
-        int[] pref = prefixSumNewArray(arr);
         printArray(arr);
-        printArray(pref);
+        prefixSum(arr);
+        printArray(arr);
     }
 }
